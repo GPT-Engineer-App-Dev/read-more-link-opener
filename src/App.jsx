@@ -5,12 +5,18 @@ import { Home } from "lucide-react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./layouts/default"; // available: default, navbar, sidebar
 import Index from "./pages/Index.jsx";
+import HackerNewsTopStories from "./pages/HackerNewsTopStories.jsx";
 const queryClient = new QueryClient();
 
 export const navItems = [
   {
     title: "Home", // Feel free to change this to your liking
     to: "/",
+    icon: <Home className="h-4 w-4" />,
+  },
+  {
+    title: "Hacker News Top Stories",
+    to: "/hacker-news-top-stories",
     icon: <Home className="h-4 w-4" />,
   },
 ];
@@ -26,6 +32,7 @@ const App = () => {
               <Route index element={<Index />} />
               {/* Add more routes here as needed */}
             </Route>
+            <Route path="/hacker-news-top-stories" element={<HackerNewsTopStories />} />
           </Routes>
         </Router>
       </TooltipProvider>
